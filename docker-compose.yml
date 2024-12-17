@@ -1,0 +1,17 @@
+services:
+  fe-host:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      image: apache
+      container_name: apache_cont
+      restart: unless-stopped
+      tty: true
+      ports:
+        - "8080:80"
+      networks:
+        - apache-net
+networks:
+  apache-net:
+    name : Tes
+    external : true	
